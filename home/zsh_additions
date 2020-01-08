@@ -26,8 +26,12 @@ else
   echo "    $ curl -fsSL https://starship.rs/install.sh | bash"
 fi
 
-# don't add space prefixed commands to permanent history
+# Don't add space prefixed commands to permanent history
 setopt histignorespace
 
-# export default locale
+# Export default locale
 export LC_ALL=en_US.UTF-8
+
+# Use colored output
+export CLICOLOR=1
+zstyle ':completion:*:default' list-colors ''
