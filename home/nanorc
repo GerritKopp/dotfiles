@@ -1,0 +1,2 @@
+# include syntax highlighting (might require newer nano than the one shipping in macOS 10.12, install with brew)
+include /usr/local/share/nano/*.nanorc

@@ -1,0 +1,27 @@
+# Make brew completions available
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+# Load completions
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+
+# Set Java home
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Add ~/.bin to PATH
+if [ -d ~/.bin ]; then
+  export PATH=$PATH:~/.bin
+fi
+
+# Use Starship prompt if available (https://starship.rs)
+if type starship &>/dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo "Starship (https://starship.rs) is not installed."
+  echo "  Install via brew:"
+  echo "    $ brew install starship"
+  echo "  Install via shell:"
+  echo "    $ curl -fsSL https://starship.rs/install.sh | bash"
+fi

@@ -1,0 +1,18 @@
+" enable syntax highlighting
+syntax on
+
+" enable indentation
+filetype plugin indent on
+set autoindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" automatically wrap left and right
+set whichwrap+=<,>,h,l,[,]
+
+" molokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+set background=dark
+colorscheme molokai
