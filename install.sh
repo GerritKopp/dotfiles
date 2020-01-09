@@ -17,7 +17,7 @@ else
   echo "Copies dotfiles to directory (${TARGET_DIR})."
 fi
 
-read -sk 1 "REPLY?Old files will be overwritten. Continue (y/n)? "
+read -sk 1 "REPLY?Old files will be overwritten. Continue? (y/n) "
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   # create target dir
@@ -30,6 +30,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   cp -f ${SRC_DIR}/home/vimrc ${TARGET_DIR}/.vimrc
   mkdir -p ${TARGET_DIR}/.vim/colors
   cp -f ${SRC_DIR}/vim/colors/molokai/molokai.vim ${TARGET_DIR}/.vim/colors/molokai.vim
+  cp -f ${SRC_DIR}/vim/colors/snazzy/snazzy.vim ${TARGET_DIR}/.vim/colors/snazzy.vim
   mkdir -p ${TARGET_DIR}/.config
   cp -fR ${SRC_DIR}/home/config/* ${TARGET_DIR}/.config/
 
@@ -48,13 +49,19 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Set git config
   if type git &>/dev/null; then
-    echo "Git configuration (global)"
-    read "GIT_USERNAME?Enter your name: " 
-    echo "Your global Git username will be \"${GIT_USERNAME}\"."
-    git config --global user.name ${GIT_USERNAME}
-    read "GIT_EMAIL?Enter your email address: " 
-    echo "Your global Git email address will be \"${GIT_EMAIL}\"."
-    git config --global user.email ${GIT_EMAIL}
+    read -sk 1 "REPLY?Configure Git name and email? (y/n) "
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo "Git configuration (global)"
+      read "GIT_USERNAME?Enter your name: " 
+      echo "Your global Git username will be \"${GIT_USERNAME}\"."
+      git config --global user.name ${GIT_USERNAME}
+      read "GIT_EMAIL?Enter your email address: " 
+      echo "Your global Git email address will be \"${GIT_EMAIL}\"."
+      git config --global user.email ${GIT_EMAIL}
+    else
+      echo "Skipping Git configuration."
+    fi
   else
     "Git is currently not installed. Remember to setup your name after installation."
   fi

@@ -14,5 +14,10 @@ set whichwrap+=<,>,h,l,[,]
 " molokai
 " let g:molokai_original = 1
 " let g:rehash256 = 1
-set background=dark
-colorscheme molokai
+" set background=dark
+" colorscheme molokai
+
+" snazzy
+" set background=dark
+let g:SnazzyTransparent = 1
+colorscheme snazzy
