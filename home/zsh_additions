@@ -38,6 +38,12 @@ export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
 zstyle ':completion:*:default' list-colors ''
 
+# Set current working directory as window title
+function set_win_title(){
+    echo -ne "\033]0; $PWD \007"
+}
+precmd_functions+=(set_win_title)
+
 # Load ~/.zsh_extra if it exists
 if [ -f ${HOME}/.zsh_extra ]; then
   . ${HOME}/.zsh_extra
