@@ -13,8 +13,8 @@ zmodload -i zsh/complist
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Add ~/.bin to PATH
-if [ -d ~/.bin ]; then
-  export PATH="$PATH:~/.bin"
+if [ -d ${HOME}/.bin ]; then
+  export PATH="$PATH:${HOME}/.bin"
 fi
 
 # Use Starship prompt if available (https://starship.rs)
@@ -39,6 +39,6 @@ export CLICOLOR=1
 zstyle ':completion:*:default' list-colors ''
 
 # Load ~/.zsh_extra if it exists
-if [ -f ~/.zsh_extra ]; then
-  . ~/.zsh_extra
+if [ -f ${HOME}/.zsh_extra ]; then
+  . ${HOME}/.zsh_extra
 fi
