@@ -2,6 +2,8 @@
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
+# Add sbin
+export PATH="$PATH:/usr/local/sbin"
 
 # Load completions
 autoload -U compinit && compinit
@@ -12,7 +14,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Add ~/.bin to PATH
 if [ -d ~/.bin ]; then
-  export PATH=$PATH:~/.bin
+  export PATH="$PATH:~/.bin"
 fi
 
 # Use Starship prompt if available (https://starship.rs)
@@ -35,3 +37,8 @@ export LC_ALL=en_US.UTF-8
 # Use colored output
 export CLICOLOR=1
 zstyle ':completion:*:default' list-colors ''
+
+# Load ~/.zsh_extra if it exists
+if [ -f ~/.zsh_extra ]; then
+  . ~/.zsh_extra
+fi
