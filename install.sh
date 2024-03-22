@@ -25,6 +25,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     mkdir -p ${TARGET_DIR}
   fi
   # copy all files
+  cp -f ${SRC_DIR}/home/zprofile ${TARGET_DIR}/.zprofile
   cp -f ${SRC_DIR}/home/zsh_additions ${TARGET_DIR}/.zsh_additions
   cp -f ${SRC_DIR}/home/nanorc ${TARGET_DIR}/.nanorc
   cp -f ${SRC_DIR}/home/vimrc ${TARGET_DIR}/.vimrc
