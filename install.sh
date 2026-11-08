@@ -30,6 +30,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   cp -f ${SRC_DIR}/home/nanorc ${TARGET_DIR}/.nanorc
   cp -f ${SRC_DIR}/home/vimrc ${TARGET_DIR}/.vimrc
   mkdir -p ${TARGET_DIR}/.vim/colors
+  cp -f ${SRC_DIR}/vim/colors/catppuccin/catppuccin_mocha.vim ${TARGET_DIR}/.vim/colors/catppuccin_mocha.vim
   cp -f ${SRC_DIR}/vim/colors/molokai/molokai.vim ${TARGET_DIR}/.vim/colors/molokai.vim
   cp -f ${SRC_DIR}/vim/colors/snazzy/snazzy.vim ${TARGET_DIR}/.vim/colors/snazzy.vim
   mkdir -p ${TARGET_DIR}/.config
@@ -54,10 +55,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       echo "Git configuration (global)"
-      read "GIT_USERNAME?Enter your name: " 
+      read "GIT_USERNAME?Enter your name: "
       echo "Your global Git username will be \"${GIT_USERNAME}\"."
       git config --global user.name ${GIT_USERNAME}
-      read "GIT_EMAIL?Enter your email address: " 
+      read "GIT_EMAIL?Enter your email address: "
       echo "Your global Git email address will be \"${GIT_EMAIL}\"."
       git config --global user.email ${GIT_EMAIL}
     else

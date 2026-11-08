@@ -1,4 +1,5 @@
-theme = Snazzy
+# Themes can be applied via `ghostty +list-themes` and `w`
+config-file = ?auto/theme.ghostty
 font-size = 12
 window-height = 50
 window-width = 160

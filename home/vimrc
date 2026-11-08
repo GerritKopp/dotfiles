@@ -19,5 +19,9 @@ set whichwrap+=<,>,h,l,[,]
 
 " snazzy
 " set background=dark
-let g:SnazzyTransparent = 1
-colorscheme snazzy
+" let g:SnazzyTransparent = 1
+" colorscheme snazzy
+
+" catppuccin_mocha
+set termguicolors
+colorscheme catppuccin_mocha
